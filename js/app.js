@@ -57,7 +57,7 @@ function initMobileMenu() {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 768 && navMenu.classList.contains("open")) {
+    if (window.innerWidth > 1120 && navMenu.classList.contains("open")) {
       navMenu.classList.remove("open");
       document.body.classList.remove("nav-open");
       toggleBtn.setAttribute("aria-expanded", "false");
