@@ -388,3 +388,128 @@
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
   }
 }
+
+@media (max-width: 768px) {
+  .modal-backdrop {
+    align-items: flex-end;
+    padding: 0.75rem;
+  }
+
+  .modal-card,
+  .modal-card[style] {
+    max-width: 100%;
+    max-height: 92dvh;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-header {
+    padding: 1.15rem 1.25rem 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.1rem;
+    padding-right: 0.75rem;
+  }
+
+  .modal-body {
+    padding: 1.25rem;
+  }
+
+  .modal-footer {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 1rem 1.25rem;
+  }
+
+  .donation-tiers {
+    grid-template-columns: 1fr;
+  }
+
+  .support-types-row {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .toast {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .lightbox-backdrop {
+    padding: 1rem;
+  }
+
+  .lightbox-content {
+    max-width: 100%;
+    max-height: 88dvh;
+  }
+
+  .lightbox-img {
+    max-height: 68dvh;
+  }
+
+  .lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox-nav {
+    top: auto;
+    bottom: 1rem;
+    transform: none;
+    width: 42px;
+    height: 42px;
+  }
+
+  .lightbox-prev {
+    left: 1rem;
+  }
+
+  .lightbox-next {
+    right: 1rem;
+  }
+
+  .lightbox-caption {
+    padding: 0 3.25rem;
+    font-size: 0.9rem;
+  }
+
+  .floating-action-btn {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-backdrop {
+    padding: 0.5rem;
+  }
+
+  .modal-card,
+  .modal-card[style] {
+    border-radius: var(--radius-md);
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .tier-btn {
+    font-size: 1rem;
+  }
+}

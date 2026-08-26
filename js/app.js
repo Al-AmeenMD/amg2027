@@ -41,6 +41,8 @@ function initMobileMenu() {
   toggleBtn.addEventListener("click", () => {
     navMenu.classList.toggle("open");
     const isOpen = navMenu.classList.contains("open");
+    document.body.classList.toggle("nav-open", isOpen);
+    toggleBtn.setAttribute("aria-expanded", String(isOpen));
     toggleBtn.innerHTML = isOpen ? "✕" : "☰";
   });
 
@@ -48,8 +50,19 @@ function initMobileMenu() {
   navMenu.querySelectorAll(".nav-link").forEach(link => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("open");
+      document.body.classList.remove("nav-open");
+      toggleBtn.setAttribute("aria-expanded", "false");
       toggleBtn.innerHTML = "☰";
     });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768 && navMenu.classList.contains("open")) {
+      navMenu.classList.remove("open");
+      document.body.classList.remove("nav-open");
+      toggleBtn.setAttribute("aria-expanded", "false");
+      toggleBtn.innerHTML = "☰";
+    }
   });
 }
 

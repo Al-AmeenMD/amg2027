@@ -101,6 +101,10 @@ body {
   overflow-x: hidden;
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -219,6 +223,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all var(--transition-normal);
   text-align: center;
   white-space: nowrap;
+  max-width: 100%;
 }
 
 .btn-primary {
@@ -386,12 +391,14 @@ h1, h2, h3, h4, h5, h6 {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1.5rem;
+  position: relative;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
   gap: 0.85rem;
+  min-width: 0;
 }
 
 .apc-emblem {
@@ -468,6 +475,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .menu-toggle {
@@ -767,6 +775,15 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.deputy-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--apc-green-dark);
 }
 
 .candidate-info-col {
@@ -1646,6 +1663,30 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 
 @media (max-width: 1024px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .container,
+  .nav-container,
+  .join-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .nav-actions .btn {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .pillars-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1656,6 +1697,10 @@ h1, h2, h3, h4, h5, h6 {
   
   .candidate-img-col {
     min-height: 380px;
+  }
+
+  .candidate-info-col {
+    padding: 2.5rem;
   }
 
   .issues-grid,
@@ -1671,6 +1716,11 @@ h1, h2, h3, h4, h5, h6 {
   .join-container {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    align-items: stretch;
+  }
+
+  .join-form-card {
+    padding: 2.5rem;
   }
 
   .footer-top {
@@ -1679,23 +1729,70 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: var(--header-height);
+  }
+
+  .container,
+  .nav-container,
+  .join-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 9vw, 2.25rem);
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .btn,
+  .btn-lg {
+    min-height: 46px;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    white-space: normal;
+  }
+
   .top-alert-content {
     flex-direction: column;
     text-align: center;
     gap: 0.4rem;
   }
 
+  .alert-message {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .countdown-box {
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
   .nav-menu {
-    position: fixed;
-    top: calc(var(--header-height) + var(--alert-height));
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: calc(100dvh - var(--header-height));
     background: #ffffff;
     flex-direction: column;
     align-items: flex-start;
-    padding: 2rem;
-    gap: 1.25rem;
+    padding: 1.25rem 1rem 2rem;
+    gap: 0.25rem;
+    overflow-y: auto;
     transform: translateX(100%);
     transition: transform var(--transition-normal);
     box-shadow: var(--shadow-xl);
@@ -1711,7 +1808,87 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .menu-toggle {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.9rem 0.25rem;
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    min-height: calc(100svh - var(--header-height));
+    padding: 4rem 0;
+    background-position: center;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 47, 73, 0.94) 0%,
+      rgba(8, 47, 73, 0.88) 58%,
+      rgba(8, 47, 73, 0.72) 100%
+    );
+  }
+
+  .hero-badge {
+    align-items: flex-start;
+    border-radius: var(--radius-md);
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .hero-title {
+    font-size: clamp(2.1rem, 11vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+  }
+
+  .hero-ctas,
+  .mobilization-actions {
+    flex-direction: column;
+  }
+
+  .hero-ctas .btn,
+  .mobilization-actions .btn {
+    width: 100%;
+  }
+
+  .hero-endorsement-pill {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .hero-endorsement-pill span:nth-child(2) {
+    display: none;
+  }
+
+  .pillars-section,
+  .vision-section,
+  .about-section,
+  .mobilization-banner,
+  .issues-section,
+  .endorsements-section,
+  .events-section,
+  .news-section,
+  .gallery-section,
+  .faq-section,
+  .join-section {
+    padding: 3.75rem 0;
   }
 
   .pillars-grid,
@@ -1725,11 +1902,110 @@ h1, h2, h3, h4, h5, h6 {
 
   .deputy-showcase {
     grid-template-columns: 1fr;
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .deputy-img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .deputy-badges {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .vision-quote-card {
+    padding: 2rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .vision-author {
+    align-items: flex-start;
+  }
+
+  .candidate-showcase,
+  .event-card {
+    border-radius: var(--radius-lg);
+  }
+
+  .candidate-img-col {
+    min-height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .candidate-info-col {
+    padding: 1.5rem;
+  }
+
+  .candidate-name {
+    font-size: 1.75rem;
   }
 
   .candidate-stats {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .stat-item:last-child {
+    border-bottom: 0;
+  }
+
+  .event-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .event-details,
+  .news-body {
+    padding: 1.35rem;
+  }
+
+  .event-image,
+  .news-thumb,
+  .gallery-item {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .gallery-overlay {
+    opacity: 1;
+  }
+
+  .faq-header {
+    padding: 1.1rem 1rem;
+  }
+
+  .faq-question {
+    font-size: 0.98rem;
+  }
+
+  .faq-content {
+    padding: 0 1rem 1.15rem;
+  }
+
+  .join-container {
+    gap: 2rem;
+  }
+
+  .join-text-col h2 {
+    font-size: clamp(1.9rem, 10vw, 2.5rem);
+  }
+
+  .join-text-col p {
+    font-size: 1rem;
+  }
+
+  .join-form-card {
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
   }
 
   .form-grid {
@@ -1744,6 +2020,10 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 
+  .checkbox-label {
+    align-items: flex-start;
+  }
+
   .footer-top {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1753,5 +2033,72 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+
+  .footer-brand .brand-logo {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .top-alert-bar {
+    font-size: 0.78rem;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .nav-container {
+    height: var(--header-height);
+  }
+
+  .apc-emblem {
+    width: 38px;
+    height: 38px;
+    font-size: 0.82rem;
+  }
+
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 12vw, 2.5rem);
+  }
+
+  .section-tag {
+    max-width: 100%;
+    align-items: flex-start;
+    border-radius: var(--radius-md);
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .pillar-card,
+  .issue-card,
+  .endorsement-card {
+    padding: 1.5rem 1.2rem;
+    border-radius: var(--radius-md);
+  }
+
+  .candidate-info-col,
+  .event-details,
+  .news-body,
+  .join-form-card {
+    padding: 1.2rem;
+  }
+
+  .mobilization-title {
+    font-size: clamp(1.8rem, 10vw, 2.25rem);
+  }
+
+  .footer-top {
+    margin-bottom: 2.25rem;
+  }
+
+  .social-links-row {
+    flex-wrap: wrap;
   }
 }
