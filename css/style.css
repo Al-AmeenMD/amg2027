@@ -844,6 +844,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
 }
 
 .deputy-badges {
@@ -926,13 +927,16 @@ h1, h2, h3, h4, h5, h6 {
 .deputy-img {
   border-radius: var(--radius-md);
   overflow: hidden;
-  height: 240px;
+  height: 250px;
+  background: var(--bg-slate-100);
 }
 
 .deputy-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 /* ==========================================================================
@@ -1273,6 +1277,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform var(--transition-smooth);
 }
 
