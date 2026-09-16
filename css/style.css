@@ -980,7 +980,7 @@ h1, h2, h3, h4, h5, h6 {
 .profile-visual-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 24, 41, 0) 55%, rgba(7, 24, 41, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(7, 24, 41, 0) 65%, rgba(7, 24, 41, 0.85) 100%);
   pointer-events: none;
 }
 
@@ -2104,9 +2104,13 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 
+  .editorial-profile.reverse-layout .profile-visual-col {
+    order: -1;
+  }
+
   .profile-visual-col {
-    min-height: 440px;
-    height: 440px;
+    min-height: 400px;
+    height: 400px;
   }
 
   .profile-content-col {
@@ -2306,19 +2310,34 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .profile-metrics-strip {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 1rem 0;
   }
 
   .profile-metric {
-    border-right: none;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 0 0 0.75rem 0;
+    padding: 0 0.5rem;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: none;
+    text-align: center;
+  }
+
+  .profile-metric:first-child {
+    padding-left: 0;
   }
 
   .profile-metric:last-child {
+    border-right: none;
     border-bottom: none;
-    padding-bottom: 0;
+    padding-right: 0;
+  }
+
+  .metric-number {
+    font-size: 1.35rem;
+  }
+
+  .metric-label {
+    font-size: 0.65rem;
   }
 
   .deputy-showcase {
