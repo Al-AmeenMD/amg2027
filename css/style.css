@@ -586,14 +586,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-section {
   position: relative;
-  min-height: 640px;
+  min-height: 560px;
   display: flex;
   align-items: center;
-  background-color: var(--apc-blue-deep);
+  background-color: #04121f;
   background-size: cover;
   background-position: center right;
   color: #ffffff;
-  padding: 5.5rem 0;
+  padding: 5rem 0;
   overflow: hidden;
 }
 
@@ -602,10 +602,11 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   background: linear-gradient(
     90deg, 
-    rgba(7, 24, 41, 0.98) 0%, 
-    rgba(7, 24, 41, 0.92) 42%, 
-    rgba(7, 24, 41, 0.45) 75%, 
-    rgba(7, 24, 41, 0.15) 100%
+    rgba(4, 18, 31, 0.98) 0%, 
+    rgba(4, 18, 31, 0.92) 36%, 
+    rgba(4, 18, 31, 0.55) 62%, 
+    rgba(4, 18, 31, 0.08) 88%,
+    rgba(4, 18, 31, 0.0) 100%
   );
   z-index: 1;
 }
@@ -613,18 +614,18 @@ h1, h2, h3, h4, h5, h6 {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 740px;
+  max-width: 660px;
 }
 
 .hero-title {
-  margin-bottom: 1rem;
-  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  line-height: 1.05;
 }
 
 .hero-campaign-tag {
   display: block;
   font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 2.75vw, 1.95rem);
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
   font-weight: 800;
   color: #38bdf8;
   letter-spacing: 0.08em;
@@ -635,49 +636,71 @@ h1, h2, h3, h4, h5, h6 {
 .hero-candidate-name {
   display: block;
   font-family: var(--font-heading);
-  font-size: clamp(2.6rem, 5.5vw, 4.1rem);
+  font-size: clamp(2.6rem, 5.25vw, 4rem);
   font-weight: 900;
   color: #ffffff;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
 }
 
-.hero-subtitle {
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #e0f2fe;
-  margin-bottom: 1.25rem;
-  line-height: 1.35;
-}
-
-.hero-description {
-  font-size: 1.05rem;
-  color: #cbd5e1;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.hero-ctas {
+/* Refined Running Mate & Office Line */
+.hero-ticket-line {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-}
-
-.hero-endorsement-pill {
-  display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.65rem 1.15rem;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-lg);
-  font-size: 0.85rem;
-  color: #cbd5e1;
+  gap: 0.5rem 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #e0f2fe;
+  margin-bottom: 1.35rem;
+  letter-spacing: 0.01em;
 }
 
-.hero-endorsement-pill strong {
+.hero-office {
+  color: #93c5fd;
+  font-weight: 700;
+}
+
+.hero-ticket-sep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.hero-running-mate {
   color: #ffffff;
+}
+
+.hero-running-mate .deputy-role {
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+/* Refined Editorial Description */
+.hero-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: 600px;
+  margin-bottom: 0;
+}
+
+.hero-lead-slogan {
+  font-family: "Georgia", "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.35;
+  position: relative;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--accent-gold);
+}
+
+.hero-lead-body {
+  font-size: 0.94rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  padding-left: 0.9rem;
 }
 
 /* ==========================================================================
@@ -2227,57 +2250,43 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-section {
-    min-height: calc(100svh - var(--header-height));
-    padding: 4rem 0;
+    min-height: auto;
+    padding: 4.5rem 0;
     background-position: center;
   }
 
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(8, 47, 73, 0.94) 0%,
-      rgba(8, 47, 73, 0.88) 58%,
-      rgba(8, 47, 73, 0.72) 100%
+      rgba(4, 18, 31, 0.94) 0%,
+      rgba(4, 18, 31, 0.88) 60%,
+      rgba(4, 18, 31, 0.75) 100%
     );
   }
 
-  .hero-badge {
-    align-items: flex-start;
-    border-radius: var(--radius-md);
-    font-size: 0.72rem;
-    line-height: 1.35;
+  .hero-candidate-name {
+    font-size: clamp(2.2rem, 9vw, 3rem);
   }
 
-  .hero-title {
-    font-size: clamp(2.1rem, 11vw, 3rem);
+  .hero-ticket-line {
+    font-size: 1rem;
+    margin-bottom: 1.15rem;
   }
 
-  .hero-subtitle {
+  .hero-lead-slogan {
     font-size: 1.1rem;
   }
 
-  .hero-description {
-    font-size: 0.98rem;
+  .hero-lead-body {
+    font-size: 0.9rem;
   }
 
-  .hero-ctas,
   .mobilization-actions {
     flex-direction: column;
   }
 
-  .hero-ctas .btn,
   .mobilization-actions .btn {
     width: 100%;
-  }
-
-  .hero-endorsement-pill {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .hero-endorsement-pill span:nth-child(2) {
-    display: none;
   }
 
   .pillars-section,
